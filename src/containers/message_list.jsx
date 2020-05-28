@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Message from '../components/message';
-import fetchMessages from '../actions';
+import { fetchMessages } from '../actions';
 
 class MessageList extends Component {
   componentWillMount() {
