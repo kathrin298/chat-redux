@@ -14,13 +14,17 @@ class MessageList extends Component {
     this.intervalID = setInterval(this.props.fetchMessages, 5000, this.props.selectedChannel);
   }
 
+  componentDidUpdate() {
+    this.list.scrollTop = this.list.scrollHeight;
+  }
+
   componentWillUnmount() {
     clearInterval(this.intervalID);
   }
 
   render() {
     return (
-      <div>
+      <div ref={(list) => { this.list = list; }} >
         {this.props.messages.map((message) => {
           return <Message message={message} key={message.created_at} />;
         })}
