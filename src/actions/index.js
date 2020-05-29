@@ -27,3 +27,10 @@ export function createMessage(channel, author, content) {
     payload: promise
   };
 }
+
+export function selectChannel(channel) {
+  return {
+    type: 'SELECT_CHANNEL',
+    payload: channel
+  };
+}
