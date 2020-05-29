@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { selectChannel, fetchMessages } from '../actions/index';
 
 class ChannelList extends Component {
-  componentWillReceiveNextProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.selectedChannel !== this.props.selectedChannel) {
       this.props.fetchMessages(nextProps.selectedChannel);
     }
@@ -16,11 +16,22 @@ class ChannelList extends Component {
 
   render() {
     return (
-      <ul>
-        {this.props.channels.map((channel) => {
-          return <li key={channel} onClick={() => this.handleClick(channel)} >{channel}</li>;
-        })}
-      </ul>
+      <div className="channels-container">
+        <h2>Channels</h2>
+        <ul>
+          {this.props.channels.map((channel) => {
+            return (
+              <li
+                key={channel}
+                onClick={() => this.handleClick(channel)}
+                role="presentation"
+              >
+              #{channel}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     );
   }
 }

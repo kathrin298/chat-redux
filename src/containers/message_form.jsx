@@ -14,6 +14,10 @@ class MessageForm extends Component {
     };
   }
 
+  componentDidMount() {
+    this.messageBox.focus();
+  }
+
   handleChange = (event) => {
     this.setState({
       formValue: event.target.value
@@ -31,7 +35,13 @@ class MessageForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} >
-        <input type="text" value={this.state.formValue} onChange={this.handleChange} />
+        <input
+          ref={(input) => { this.messageBox = input; }}
+          type="text"
+          className="form-control"
+          value={this.state.formValue}
+          onChange={this.handleChange}
+        />
         <button type="submit" >Send</button>
       </form>
     );

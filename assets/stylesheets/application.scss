@@ -2,6 +2,46 @@ body {
   font-family: Helvetica;
 }
 .app {
+  display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.channels-container {
+  padding: 0 50px;
+  background-color: black;
+  color: white;
+  ul {
+    padding-left: 0;
+  }
+}
+
+.channels-container ul li {
+  list-style: none;
+
+}
+
+.messages-container {
+  width: 80%;
+  height: 100vh;
+  padding-left: 10px;
+}
+
+.messages-container form {
+  display: flex;
+  button {
+    width: 10%
+  }
+  input {
+    width: 90%
+  }
+}
+
+.messages-content {
+  height: 85%;
+  overflow: scroll;
+}
+
+.message h5 {
+  font-weight: bold;
 }
